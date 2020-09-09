@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Marta</string>
+    <string name="uzbek">Uzbekcha</string>
+    <string name="rus">Русский</string>
+    <string name="en">English</string>
+    <string name="arab">بالعربية</string>
+    <string name="next">التالى</string>
+</resources>
