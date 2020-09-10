@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            />
+    </androidx.appcompat.widget.Toolbar>
+<androidx.appcompat.widget.AppCompatImageView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_logo123_4"
+    android:layout_marginTop="21dp"
+    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.27">
+
+            <com.chaos.view.PinView
+                android:id="@+id/pin_code_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:cursorVisible="true"
+                android:paddingBottom="30dp"
+                android:focusable="true"
+                android:focusableInTouchMode="false"
+                android:inputType="numberPassword"
+                android:textStyle="bold"
+                app:hideLineWhenFilled="false"
+                app:itemCount="4"
+                app:itemHeight="50dp"
+                app:itemSpacing="50dp"
+                app:itemWidth="50dp"
+                android:fontFamily="@string/app_name"
+                android:textColor="#898EA3"
+                app:lineColor="@color/colorAccent"
+                app:viewType="line" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.10"
+            >
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/im_finger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/finge"
+                />
+
+        </FrameLayout>
+
+        <com.konaire.numerickeyboard.NumericKeyboard
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            app:field="@+id/code"
+            app:keyTextColor="@color/colorAccent" />
+
+    </LinearLayout>
+</LinearLayout>

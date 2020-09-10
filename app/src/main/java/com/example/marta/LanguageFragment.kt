@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
+import com.example.marta.bio.VerificationFragment
 import com.example.marta.bio.yan
 import kotlinx.android.synthetic.main.language_layout.*
 import java.util.*
@@ -29,7 +30,7 @@ class LanguageFragment :Fragment(R.layout.language_layout){
           bt_next.setOnClickListener {
               fragmentManager?.beginTransaction()?.addToBackStack(null)?.replace(
                   R.id.container2,
-                 yan()
+                 VerificationFragment()
               )?.commit()
           }
 //        if (lan!!.isNotEmpty()){
