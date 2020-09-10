@@ -66,8 +66,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     implementation 'androidx.preference:preference:1.1.1'
 
-
-
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-livedata-ktx
 
     /*
@@ -93,9 +91,11 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$dagger2_version"
     kapt "com.google.dagger:dagger-android-processor:$dagger2_version"
     implementation "com.google.dagger:dagger-android-support:$dagger2_version"
-
-
-
+    //gson
     implementation "com.google.code.gson:gson:$gson_version"
+
+    //fingerprint
+    def biometric_version= '1.0.0-rc02'
+    implementation "androidx.biometric:biometric:$biometric_version"
 
 }
