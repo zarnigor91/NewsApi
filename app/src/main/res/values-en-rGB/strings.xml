@@ -7,4 +7,5 @@
     <string name="arab">بالعربية</string>
     <string name="next">Next</string>
     <string name="feture"> ok</string>
+    <string name="tel_number">Phone number</string>
 </resources>

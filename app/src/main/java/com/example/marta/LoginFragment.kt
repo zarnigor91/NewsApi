@@ -7,13 +7,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.marta.model.LoginRequest
+import com.example.marta.model.VerRequest
 import com.example.marta.network.PostApi
 import com.example.marta.utils.PreferencesUtil
 import javax.inject.Inject
 import com.example.marta.vm.loginViewModel
 import kotlinx.android.synthetic.main.login_fragment.*
 
-class LoginFragment :Fragment(R.layout.login_fragment){
+class LoginFragment :Fragment(R.layout.tel_number_layout){
     @Inject
     lateinit var api: PostApi
     @Inject
@@ -25,8 +26,8 @@ class LoginFragment :Fragment(R.layout.login_fragment){
         injectDependency(this)
         loadData()
         bt_naxt_login.setOnClickListener {
-            loginViewModel().getToken(LoginRequest(et_email.text.toString(), et_password.text.toString(),et_grant_type.text.toString()))
-
+//            loginViewModel().getToken(LoginRequest(et_email.text.toString(), et_password.text.toString(),et_grant_type.text.toString()))
+            loginViewModel().getToken(VerRequest("998998343007"))
         }
     }
 
@@ -39,7 +40,6 @@ class LoginFragment :Fragment(R.layout.login_fragment){
         loginViewModel().init(api, preferencesUtil)
 
         loginViewModel().tokenLiveData.observe(viewLifecycleOwner, postObserver)
-
     }
 
     private val postObserver = Observer<String> {

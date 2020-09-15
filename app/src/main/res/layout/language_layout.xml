@@ -18,88 +18,116 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/id_imag_logo"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
+
         >
-        <RadioGroup
-            android:id="@+id/rg_lan"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bt_ar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical">
-            <RadioButton
-                android:id="@+id/rb_uz"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layoutDirection="rtl"
-                android:textAlignment="textStart"
-                android:layout_gravity="start"
-                android:text="@string/uzbek"
-                android:paddingStart="30dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:background="@drawable/background_radio_button"
-                android:textSize="14sp" />
+            android:layout_gravity="center"
+            android:text="@string/arab"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/fon"
+              android:background="@drawable/back_rip"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bt_en"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/en"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            android:fontFamily="@font/fon"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bt_ru"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/rus"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/fon"
+            />
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rg_lan"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:orientation="vertical">-->
+<!--            <RadioButton-->
+<!--                android:id="@+id/rb_uz"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layoutDirection="rtl"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:text="@string/uzbek"-->
+<!--                android:paddingStart="30dp"-->
+<!--                android:paddingEnd="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:background="@drawable/background_radio_button"-->
+<!--                android:textSize="14sp" />-->
 
-            <RadioButton
-                android:id="@+id/rb_rus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layoutDirection="rtl"
-                android:textAlignment="textStart"
-                android:layout_gravity="start"
-                android:text="@string/rus"
-                android:paddingStart="30dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:background="@drawable/background_radio_button"
-                android:textSize="14sp" />
-            <RadioButton
-                android:id="@+id/rb_en"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layoutDirection="rtl"
-                android:textAlignment="textStart"
-                android:layout_gravity="start"
-                android:text="@string/en"
-                android:paddingStart="30dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:background="@drawable/background_radio_button"
-                android:textSize="14sp" />
-            <RadioButton
-                android:id="@+id/rb_arab"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layoutDirection="rtl"
-                android:textAlignment="textStart"
-                android:layout_gravity="start"
-                android:text="@string/arab"
-                android:paddingStart="30dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:background="@drawable/background_radio_button"
-                android:textSize="14sp" />
-        </RadioGroup>
+<!--            <RadioButton-->
+<!--                android:id="@+id/rb_rus"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layoutDirection="rtl"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:text="@string/rus"-->
+<!--                android:paddingStart="30dp"-->
+<!--                android:paddingEnd="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:background="@drawable/background_radio_button"-->
+<!--                android:textSize="14sp" />-->
+<!--            <RadioButton-->
+<!--                android:id="@+id/rb_en"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layoutDirection="rtl"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:text="@string/en"-->
+<!--                android:paddingStart="30dp"-->
+<!--                android:paddingEnd="15dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:background="@drawable/background_radio_button"-->
+<!--                android:textSize="14sp" />-->
+<!--            <RadioButton-->
+<!--                android:id="@+id/rb_arab"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layoutDirection="rtl"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:text="@string/arab"-->
+<!--                android:paddingStart="30dp"-->
+<!--                android:paddingEnd="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:background="@drawable/background_radio_button"-->
+<!--                android:textSize="14sp" />-->
+<!--        </RadioGroup>-->
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_next"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/backround_button"
-        android:layout_marginBottom="43dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:textColor="#FFFFFF"
-        android:text="@string/next"
-        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

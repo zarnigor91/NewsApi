@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     buildToolsVersion "30.0.1"
-
+    viewBinding.enabled = true
     defaultConfig {
         applicationId "com.example.marta"
         minSdkVersion 22
@@ -100,5 +100,4 @@ dependencies {
 
     implementation 'com.chaos.view:pinview:1.4.3'
 
-    implementation 'com.konaire.numeric-keyboard:numeric-keyboard:1.1.0'
 }

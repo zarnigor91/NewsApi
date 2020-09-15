@@ -4,6 +4,8 @@
     <string name="rus">Русский</string>
     <string name="en">English</string>
     <string name="arab">بالعربية</string>
-    <string name="next">Keyingi</string>
+    <string name="next">Next</string>
     <string name="feture"> ok</string>
+    <string name="tel_number">Phone number</string>
+    <string name="nextt">Next</string>
 </resources>

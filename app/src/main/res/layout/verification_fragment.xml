@@ -50,14 +50,16 @@
                 app:itemWidth="50dp"
                 android:fontFamily="@string/app_name"
                 android:textColor="#898EA3"
-                app:lineColor="@color/colorAccent"
+                app:lineColor="#7858BA"
                 app:viewType="line" />
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.10"
+            android:layout_weight="0.15"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             >
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/im_finger"
@@ -67,14 +69,19 @@
                 />
 
         </FrameLayout>
-
-        <com.konaire.numerickeyboard.NumericKeyboard
+          <RelativeLayout
+              android:layout_marginTop="50dp"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="2"
+              >
+        <com.example.marta.bio.NumericKeypadLayout
+            android:id="@+id/num_pad"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:layout_marginBottom="10dp"
-            app:field="@+id/code"
-            app:keyTextColor="@color/colorAccent" />
-
+            />
+          </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

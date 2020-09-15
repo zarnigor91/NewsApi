@@ -26,7 +26,7 @@ public class App :Application(){
     override fun onCreate() {
         super.onCreate()
         app=this
-        initLocale("uz")
+        initLocale("ru")
         AndroidThreeTen.init(this);
         apiComponent = DaggerUserApiComponent.builder()
             .userApiModule(UserApiModule(this))
