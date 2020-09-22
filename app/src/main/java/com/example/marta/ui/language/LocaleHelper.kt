@@ -1,4 +1,4 @@
-package com.example.marta
+package com.example.marta.ui.language
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -15,24 +15,45 @@ object LocaleHelper{
     private const val SELECTED_LANGUAGE = "Locale.Helper.Selected.Language"
     fun onAttach(context: Context): Context {
         val lang =
-            getPersistedData(context, Locale.getDefault().getLanguage())
-        return setLocale(context, lang)
+            getPersistedData(
+                context,
+                Locale.getDefault().getLanguage()
+            )
+        return setLocale(
+            context,
+            lang
+        )
     }
 
     fun onAttach(context: Context, defaultLanguage: String): Context {
-        val lang = getPersistedData(context, defaultLanguage)
-        return setLocale(context, lang)
+        val lang = getPersistedData(
+            context,
+            defaultLanguage
+        )
+        return setLocale(
+            context,
+            lang
+        )
     }
 
     fun getLanguage(context: Context): String? {
-        return getPersistedData(context, Locale.getDefault().getLanguage())
+        return getPersistedData(
+            context,
+            Locale.getDefault().getLanguage()
+        )
     }
 
     fun setLocale(context: Context, language: String?): Context {
         persist(context, language)
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            updateResources(context, language)
-        } else updateResourcesLegacy(context, language)
+            updateResources(
+                context,
+                language
+            )
+        } else updateResourcesLegacy(
+            context,
+            language
+        )
     }
 
     private fun getPersistedData(context: Context, defaultLanguage: String): String? {

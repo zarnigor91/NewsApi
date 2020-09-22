@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.marta.R
 import kotlinx.android.synthetic.main.verification_fragment.*
-import org.jetbrains.annotations.NotNull
 
 
 class VerificationFragment :Fragment(R.layout.verification_fragment){
@@ -26,7 +25,7 @@ Toast.makeText(requireContext(),"Terildi $value",Toast.LENGTH_LONG).show()
           im_finger.setOnClickListener {
               fragmentManager?.beginTransaction()?.addToBackStack(null)?.replace(
                   R.id.container2,
-                 yan()
+                 Biometricfragment()
               )?.commit()
           }
 

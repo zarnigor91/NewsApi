@@ -1,9 +1,11 @@
-package com.example.marta
+package com.example.marta.ui.language
 
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
+import com.example.marta.app.App
+import com.example.marta.R
 import java.util.*
 
 class LanguageActivity :AppCompatActivity(){
@@ -11,7 +13,10 @@ class LanguageActivity :AppCompatActivity(){
         super.onCreate(savedInstanceState)
          setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container2, LanguageFragment())
+            .replace(
+                R.id.container2,
+                LanguageFragment()
+            )
             .commit()
         val prefShar = PreferenceManager.getDefaultSharedPreferences(App.getApplication())
         val lan = prefShar.getString("language", "")

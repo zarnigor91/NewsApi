@@ -6,12 +6,16 @@ class PreferencesUtil(
     private val preferences: SharedPreferences
 ){
 
-    fun getToken(): String {
+    fun getTokenn(): String {
     return preferences.getString("token","")?:""
 }
 
 fun setToken(token: String) {
     preferences.edit().putString("token", token).apply()
 }
+
+    fun clearToken(token: String) {
+        preferences.edit().putString("token",token).apply()
+    }
 }
 

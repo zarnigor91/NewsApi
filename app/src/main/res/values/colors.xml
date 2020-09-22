@@ -27,4 +27,16 @@
     <color name="colorError">#F44336</color>
     <color name="colorBlack">#404040</color>
     <color name="color_numeric_keypad_background">#F4F5FA</color>
+    <color name="primary_text">#1B1B1B</color>
+    <color name="stroke_alert_dialog">#B6B6B6</color>
+    <color name="background_alert_dialog">#DDFFFFFF</color>
+    <color name="colorNavigationIcon">#404040</color>
+    <color name="theme_background">#FFF</color>
+    <color name="colorAccentLight">#99A082F2</color>
+    <color name="colorAccentDark">#5A5193</color>
+    <color name="dark_grey">#6E6E6E</color>
+    <color name="secondary_text">#AAA9A9</color>
+    <color name="danger">#fffa3737</color>
+    <color name="ui_elements_color">#bb576675</color>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.example.marta
+package com.example.marta.base
 
 import dagger.android.support.DaggerAppCompatActivity
 

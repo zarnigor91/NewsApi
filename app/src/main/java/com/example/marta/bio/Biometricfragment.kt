@@ -14,7 +14,7 @@ import androidx.fragment.app.DialogFragment
 import com.example.marta.R
 import java.util.concurrent.Executor
 
-class yan:DialogFragment(){
+class Biometricfragment:DialogFragment(){
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

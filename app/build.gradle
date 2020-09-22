@@ -100,4 +100,30 @@ dependencies {
 
     implementation 'com.chaos.view:pinview:1.4.3'
 
+    implementation 'com.google.android.material:material:1.2.1'
+
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    kapt 'android.arch.lifecycle:compiler:1.1.1'
+    kapt 'android.arch.persistence.room:compiler:1.1.1'
+
+    implementation 'com.hbb20:ccp:2.4.0'
+
+    implementation 'io.michaelrocks:libphonenumber-android:8.12.9'
+
+//String utils
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+
+    def fragment_version = "1.2.5"
+    // Java language implementation
+    implementation "androidx.fragment:fragment:$fragment_version"
+    // Kotlin
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    // Testing Fragments in Isolation
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+
+
 }

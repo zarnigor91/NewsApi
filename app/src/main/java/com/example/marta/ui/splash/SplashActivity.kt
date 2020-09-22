@@ -1,4 +1,4 @@
-package com.example.marta
+package com.example.marta.ui.splash
 
 import android.content.Intent
 import android.os.Build
@@ -8,6 +8,8 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
+import com.example.marta.R
+import com.example.marta.ui.language.LanguageActivity
 import com.example.marta.vm.LoginViewModel
 import java.util.*
 
@@ -38,11 +40,8 @@ class SplashActivity :AppCompatActivity(){
         val intent =    Intent(this, LanguageActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
 
-        //3second splash time
         Handler().postDelayed({
-            //start main activity
             startActivity(intent)
-            //finish this activity
             finish()
         },3000)
     }

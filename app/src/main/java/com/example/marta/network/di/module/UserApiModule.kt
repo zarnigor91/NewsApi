@@ -37,7 +37,7 @@ class UserApiModule(private val context: Context) {
     @AppScope
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http:192.168.100.38:1113/")/*BuildConfig.API_URL*/
+            .baseUrl("http://192.168.100.38:1113/")/*BuildConfig.API_URL*/
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())

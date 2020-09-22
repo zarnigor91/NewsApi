@@ -2,9 +2,7 @@ package com.example.marta.vm
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
-import com.example.marta.LanguageActivity
-import com.example.marta.SplashActivity
-import com.example.marta.model.LoginRequest
+import com.example.marta.ui.language.LanguageActivity
 import com.example.marta.model.VerRequest
 import com.example.marta.network.PostApi
 import com.example.marta.utils.PreferencesUtil
@@ -35,12 +33,13 @@ class LoginViewModel :ViewModel(){
 //            }
 //        }
 //    }
-    fun getToken(createLogin:VerRequest) {
+    fun getHash(createLogin:VerRequest) {
         viewModelScope.launch(Dispatchers.IO) {
             val response = api.getPosts(VerRequest(createLogin.phone))
 
             if (response.isSuccessful) {
                 _tokenLiveData.postValue(response.body()?.hash)
+
             } else {
                 _tokenLiveData.postValue("")
             }

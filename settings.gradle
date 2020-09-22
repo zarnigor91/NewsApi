@@ -1,2 +1,3 @@
+include ':ccp'
 include ':app'
 rootProject.name = "Marta"

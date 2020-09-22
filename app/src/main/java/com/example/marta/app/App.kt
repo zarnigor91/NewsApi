@@ -1,10 +1,6 @@
-package com.example.marta
+package com.example.marta.app
 
 import android.app.Application
-import android.content.Context
-import android.content.SharedPreferences
-import android.content.res.Configuration
-import android.os.Build
 import com.example.marta.network.di.component.DaggerUserApiComponent
 import com.example.marta.network.di.component.UserApiComponent
 import com.example.marta.network.di.module.UserApiModule
@@ -21,11 +17,12 @@ public class App :Application(){
 
     companion object{
         var app:Application?=null
-        fun getApplication():Application=app!!
+        fun getApplication():Application=
+            app!!
     }
     override fun onCreate() {
         super.onCreate()
-        app=this
+        app =this
         initLocale("ru")
         AndroidThreeTen.init(this);
         apiComponent = DaggerUserApiComponent.builder()

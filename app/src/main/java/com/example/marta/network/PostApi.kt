@@ -1,10 +1,7 @@
 package com.example.marta.network
 
 
-import com.example.marta.model.LoginRequest
-import com.example.marta.model.ModelResponce
-import com.example.marta.model.ModelUser
-import com.example.marta.model.VerRequest
+import com.example.marta.model.*
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -24,6 +21,10 @@ interface PostApi {
     @POST("registration/code")
 //    suspend fun getPosts(@Field ("phone")phone:String) : Response<Any>
     suspend fun getPosts(@Body verRequest: VerRequest) : Response<ModelResponce>
+
+    @POST("registration/sign_up")
+    suspend fun getSigUp(@Body sigUpRequest: SigUpRequest):Response<SigUpResponce>
+
 
 
 }
