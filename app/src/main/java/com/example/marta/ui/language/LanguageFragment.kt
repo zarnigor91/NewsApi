@@ -47,37 +47,6 @@ class LanguageFragment :Fragment(R.layout.language_layout){
         } else bt_ru.isSelected = true
 
 
-////
-////        bt_en.setOnClickListener {
-////
-////            changeLang("en")
-////            bt_en.isSelected = true
-////            bt_ru.isSelected = false
-////            bt_ar.isSelected=false
-////            sharedPref.edit().putString("language", "en").apply()
-////        }
-//        bt_ru.setOnClickListener {
-//            nextFragment()
-//            changeLang("ru")
-//            bt_en.isSelected = false
-//            bt_ru.isSelected = true
-//            bt_ar.isSelected=false
-//            sharedPref.edit().putString("language", "ru").apply()
-//
-//        }
-//
-//        bt_ar.setOnClickListener {
-//            nextFragment()
-//            changeLang("ar")
-//            bt_en.isSelected = false
-//            bt_ru.isSelected = false
-//            bt_ar.isSelected=true
-//            sharedPref.edit().putString("language", "ar").apply()
-//
-//
-//        }
-
-
         bt_ar.setOnTouchListener{ _, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN ->  cancelScaleAnimation(bt_ar)
@@ -189,8 +158,8 @@ class LanguageFragment :Fragment(R.layout.language_layout){
 
     }
     private fun startScaleAnimation(view: View) {
-        val scaleDownX = ObjectAnimator.ofFloat(view, "scaleX", 1.5f)
-        val scaleDownY = ObjectAnimator.ofFloat(view, "scaleY", 1.5f)
+        val scaleDownX = ObjectAnimator.ofFloat(view, "scaleX", 1.35f)
+        val scaleDownY = ObjectAnimator.ofFloat(view, "scaleY", 1.35f)
         scaleDownX.duration = 200
         scaleDownY.duration = 200
         scaleDownX.start()

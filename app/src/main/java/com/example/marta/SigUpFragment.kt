@@ -42,7 +42,7 @@ class SigUpFragment :Fragment(R.layout.fragment_password){
         next_btn.setOnClickListener {
             Log.d("hashh","hash"+preferencesUtil.getTokenn())
             sipUpViewModel().loadSigUp(SigUpRequest(preferencesUtil.getTokenn(), conf!!,et_conf_pass.text.toString()))
-            fragmentManager?.beginTransaction()?.addToBackStack(null)?.replace(
+            activity?.supportFragmentManager?.beginTransaction()?.addToBackStack(null)?.replace(
                 R.id.container2,
                 SigUpFragment()
             )?.commit()
