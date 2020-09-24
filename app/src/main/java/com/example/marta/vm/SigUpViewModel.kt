@@ -3,7 +3,6 @@ package com.example.marta.vm
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import com.example.marta.model.SigUpRequest
-import com.example.marta.model.SigUpResponce
 import com.example.marta.network.PostApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

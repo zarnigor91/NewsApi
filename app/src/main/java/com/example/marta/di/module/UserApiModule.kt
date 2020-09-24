@@ -1,8 +1,8 @@
-package com.example.marta.network.di.module
+package com.example.marta.di.module
 
 import android.content.Context
 import com.example.marta.network.PostApi
-import com.example.marta.network.di.scope.AppScope
+import com.example.marta.di.scope.AppScope
 import com.example.marta.utils.PreferencesUtil
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -10,7 +10,6 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module
 import dagger.Provides
-import okhttp3.Credentials
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -37,7 +36,7 @@ class UserApiModule(private val context: Context) {
     @AppScope
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://192.168.100.38:1113/")/*BuildConfig.API_URL*/
+            .baseUrl("https://auth.marta.uz/")/*BuildConfig.API_URL*/
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())

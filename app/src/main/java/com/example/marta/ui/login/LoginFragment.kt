@@ -11,10 +11,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.example.marta.ConfirmFragment
 import com.example.marta.app.App
 import com.example.marta.R
-import com.example.marta.SigUpFragment
 import com.example.marta.model.VerRequest
 import com.example.marta.network.PostApi
 import com.example.marta.utils.PreferencesUtil
@@ -39,30 +37,31 @@ class LoginFragment :Fragment(R.layout.tel_number_layout){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val oneFragment: Fragment =ConfirmFragment()
+        val oneFragment: Fragment = ConfirmFragment()
         injectDependency(this)
         loadData()
 
-        val args = Bundle()
-        args.putString("hash", hasshh)
-        oneFragment.arguments = args
         bt_naxt_login.setOnClickListener {
-
             et_num.text = ccp.fullNumber
+            val works = arrayOf(hasshh,et_num.text.toString())
+            val args = Bundle()
+            args.putStringArray("works",works)
+            oneFragment.arguments = args
 //            loginViewModel().getToken(LoginRequest(et_email.text.toString(), et_password.text.toString(),et_grant_type.text.toString()))
+
             loginViewModel().getHash(VerRequest(et_num.text.toString()))
-            fragmentManager?.beginTransaction()?.setCustomAnimations(
+            Log.d("phone",""+et_num.text.toString())
+            activity?.supportFragmentManager?.beginTransaction()?.setCustomAnimations(
                 R.anim.enter_left,
                 R.anim.exit_left,
                 R.anim.enter_right,
                 R.anim.exit_right
             )?.addToBackStack(null)?.replace(
                 R.id.container2,
-               oneFragment
+                oneFragment
             )?.commit()
 
         }
-
         assignViews()
         addTextWatcher()
         registerCarrierEditText()
@@ -74,9 +73,7 @@ class LoginFragment :Fragment(R.layout.tel_number_layout){
     }
 
     private fun loadData(){
-
         loginViewModel().init(api, preferencesUtil)
-
         loginViewModel().tokenLiveData.observe(viewLifecycleOwner, postObserver)
 //        Log.d("tokk","tok"+ loginViewModel().tokenLiveData.observe(viewLifecycleOwner, postObserver))
     }

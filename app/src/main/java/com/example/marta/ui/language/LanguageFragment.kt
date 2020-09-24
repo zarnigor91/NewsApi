@@ -61,12 +61,7 @@ class LanguageFragment :Fragment(R.layout.language_layout){
                         val handler = Handler()
                         handler.postDelayed(Runnable {
                            nextFragment()
-//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                                overridePendingTransition(
-//                                    R.anim.enter_slide_left,
-//                                    R.anim.exit_slide_left
-//                                )
-//                            }
+
                         }, 200)
                     } else {
                         isMove = false

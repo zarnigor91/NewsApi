@@ -1,13 +1,14 @@
-package com.example.marta.network.di.component
+package com.example.marta.di.component
 
 
 
 
+import com.example.marta.ui.login.ConfirmFragment
 import com.example.marta.app.App
 import com.example.marta.ui.login.LoginFragment
-import com.example.marta.SigUpFragment
-import com.example.marta.network.di.module.UserApiModule
-import com.example.marta.network.di.scope.AppScope
+import com.example.marta.ui.login.SigUpFragment
+import com.example.marta.di.module.UserApiModule
+import com.example.marta.di.scope.AppScope
 import dagger.Component
 
 
@@ -17,4 +18,5 @@ interface UserApiComponent {
     fun inject(app: App)
     fun inject(fragment: LoginFragment)
       fun inject(fragment: SigUpFragment)
+    fun inject(fragment: ConfirmFragment)
 }

@@ -1,9 +1,9 @@
 package com.example.marta.app
 
 import android.app.Application
-import com.example.marta.network.di.component.DaggerUserApiComponent
-import com.example.marta.network.di.component.UserApiComponent
-import com.example.marta.network.di.module.UserApiModule
+import com.example.marta.di.component.DaggerUserApiComponent
+import com.example.marta.di.component.UserApiComponent
+import com.example.marta.di.module.UserApiModule
 import com.example.marta.utils.PreferencesUtil
 import java.util.*
 import com.jakewharton.threetenabp.AndroidThreeTen

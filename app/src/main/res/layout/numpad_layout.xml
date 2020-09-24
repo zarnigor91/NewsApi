@@ -108,7 +108,11 @@
             android:visibility="gone"
             android:clickable="false"
             style="@style/numpad_key"/>
-
+        <ImageButton
+            android:id="@+id/backspace"
+            style="@style/numpad_key"
+            android:tint="@color/primary_text"
+            app:srcCompat="@drawable/ic_form_backspace" />
         <Button
             android:id="@+id/d0"
             style="@style/numpad_key"
@@ -116,10 +120,10 @@
             android:text="@string/_0" />
 
         <ImageButton
-            android:id="@+id/backspace"
+            android:id="@+id/imb_ok"
             style="@style/numpad_key"
             android:tint="@color/primary_text"
-            app:srcCompat="@drawable/ic_form_backspace" />
+            app:srcCompat="@drawable/ic_ok" />
 
     </LinearLayout>
 </LinearLayout>

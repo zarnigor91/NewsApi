@@ -1,4 +1,4 @@
-package com.example.marta.network.di.scope
+package com.example.marta.di.scope
 
 import javax.inject.Scope
 
