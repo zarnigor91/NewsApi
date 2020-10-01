@@ -116,6 +116,9 @@ dependencies {
 
 //String utils
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+    implementation "javax.xml.bind:jaxb-api:2.3.1"
+    implementation 'com.github.1AboveAll:Hasher:-SNAPSHOT'
+
 
     def fragment_version = "1.2.5"
     // Java language implementation
@@ -124,6 +127,8 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
     // Testing Fragments in Isolation
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+
+    implementation 'com.google.android.material:material:1.2.0'
 
 
 }

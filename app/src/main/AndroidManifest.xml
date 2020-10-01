@@ -5,9 +5,10 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
-    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-feature android:name="android.hardware.fingerprint" android:required="true" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,6 +27,7 @@
         </activity>
 
         <activity android:name=".ui.language.LanguageActivity"/>
+        <activity android:name=".ui.dashboard.DashboardActivity"/>
     </application>
 
 </manifest>

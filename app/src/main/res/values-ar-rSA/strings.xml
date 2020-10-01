@@ -32,4 +32,10 @@
     <string name="forgot_pin_code">Forgot\nyour PIN?</string>
     <string name="tmp_password">Temporary password</string>
     <string name="err_msg_otp_length">One time password can\'t be less than 5 digits</string>
+    <string name="repeat_enter_new_pin_code">Repeat PIN</string>
+    <string name="lock_screen_title_pf">Input pin code or use fingerprint</string>
+    <string name="no_fingerprints_message_pf">No fingerprints found. Please add fingerprints in the settings if you want to use this authorization method."</string>
+    <string name="no_fingerprints_title_pf">"No fingerprints found"</string>
+    <string name="cancel_pf">Cancel</string>
+    <string name="settings_pf">Settings</string>
 </resources>

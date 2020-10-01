@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.marta.R
-import com.example.marta.ui.SettingPassFragment
+import com.example.marta.pin2.PinFragment
 import kotlinx.android.synthetic.main.fragment_password.*
 
 class ProPasswordFragment :Fragment(R.layout.fragment_password){
@@ -22,7 +22,8 @@ class ProPasswordFragment :Fragment(R.layout.fragment_password){
                 R.anim.exit_right
             )?.addToBackStack(null)?.replace(
                 R.id.container2,
-           SettingPassFragment()
+
+                PinFragment()
             )?.commit()
         }
         else {

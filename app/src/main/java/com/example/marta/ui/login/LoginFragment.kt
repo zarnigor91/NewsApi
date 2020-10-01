@@ -21,7 +21,6 @@ import com.hbb20.CountryCodePicker
 import io.michaelrocks.libphonenumber.android.NumberParseException
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
 import io.michaelrocks.libphonenumber.android.Phonenumber
-import kotlinx.android.synthetic.main.login_fragment.bt_naxt_login
 import kotlinx.android.synthetic.main.tel_number_layout.*
 import javax.inject.Inject
 
