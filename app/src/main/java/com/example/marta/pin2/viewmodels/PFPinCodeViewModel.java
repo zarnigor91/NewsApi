@@ -18,7 +18,7 @@ public class PFPinCodeViewModel extends ViewModel {
         final PFLiveData<PFResult<String>> liveData= new PFLiveData<>();
         PFSecurityManager.getInstance().getPinCodeHelper().encodePin(context, pin,
                 new PFPinCodeHelperCallback<String>() {
-                    @Override
+                     @Override
                     public void onResult(PFResult result) {
                         liveData.setData(result);
                     }

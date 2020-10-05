@@ -11,7 +11,7 @@ class DashboardActivity :AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
-        val fragment =DashboardFragment()
+        val fragment = DashboardFragment()
         if(savedInstanceState==null){
             addFragment(fragment)
         }

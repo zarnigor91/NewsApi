@@ -60,7 +60,7 @@ dependencies {
 
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
 
-    implementation'com.github.scottyab:showhidepasswordedittext:0.8'
+    implementation 'com.github.scottyab:showhidepasswordedittext:0.8'
 
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
@@ -95,7 +95,7 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
 
     //fingerprint
-    def biometric_version= '1.0.0-rc02'
+    def biometric_version = '1.0.0-rc02'
     implementation "androidx.biometric:biometric:$biometric_version"
 
     implementation 'com.chaos.view:pinview:1.4.3'
@@ -129,6 +129,16 @@ dependencies {
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
 
     implementation 'com.google.android.material:material:1.2.0'
+    implementation 'com.github.allan1st:JellyRefreshLayout:2.0'
 
+    implementation 'me.dm7.barcodescanner:zbar:1.9.13'
+    implementation 'com.facebook.stetho:stetho:1.5.1'
 
+    //Room DB Library
+    def room_version = "2.1.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'com.journeyapps:zxing-android-embedded:3.4.0@aar'
 }

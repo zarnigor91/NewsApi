@@ -14,7 +14,6 @@ import android.view.View
 import android.view.View.OnLongClickListener
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -28,13 +27,13 @@ import com.example.marta.pin2.views.PFCodeView
 import com.example.marta.ui.dashboard.DashboardActivity
 
 
-class PinFragment: Fragment(R.layout.fragment_lock_screen_pf) {
+class PinFragment : Fragment() {
 
-  private  val TAG = PinFragment::class.java.name
+    private val TAG = PinFragment::class.java.name
 
-  private  val INSTANCE_STATE_CONFIG =
+    private val INSTANCE_STATE_CONFIG =
         "com.beautycoder.pflockscreen.instance_state_config"
-   private var sharedPref= PreferenceManager.getDefaultSharedPreferences(App.getApplication())
+    private var sharedPref = PreferenceManager.getDefaultSharedPreferences(App.getApplication())
     var mFingerprintButton: View? = null
     var mDeleteButton: View? = null
     var mLeftButton: TextView? = null
@@ -48,7 +47,7 @@ class PinFragment: Fragment(R.layout.fragment_lock_screen_pf) {
 
     private var mCodeCreateListener: OnPFLockScreenCodeCreateListener? =
         null
-    var mLoginListener:OnPFLockScreenLoginListener? =
+    var mLoginListener: OnPFLockScreenLoginListener? =
         null
     var mCode = ""
     var mCodeValidation = ""
@@ -138,7 +137,7 @@ class PinFragment: Fragment(R.layout.fragment_lock_screen_pf) {
 //            mFingerprintButton!!.visibility = View.GONE
 //            mDeleteButton!!.visibility = View.VISIBLE
 //        }
-        mIsCreateMode = mConfiguration!!.mode === PFFLockScreenConfiguration.MODE_CREATE
+        mIsCreateMode = mConfiguration!!.mode == PFFLockScreenConfiguration.MODE_CREATE
 //        if (mIsCreateMode) {
 //            mLeftButton!!.visibility = View.GONE
 //            mFingerprintButton!!.visibility = View.GONE
@@ -295,10 +294,10 @@ class PinFragment: Fragment(R.layout.fragment_lock_screen_pf) {
             }
             mCode = code
             sharedPref.edit().putString("code", code).apply()
-            Log.d("codd",""+code)
+            Log.d("codd", "" + code)
             mPFPinCodeViewModel.checkPin(context, mEncodedPinCode, mCode).observe(
                 this@PinFragment,
-                  Observer<PFResult<Boolean?>?> {
+                Observer<PFResult<Boolean?>?> {
                     fun onChanged(result: PFResult<Boolean>?) {
                         if (result == null) {
                             return
@@ -346,7 +345,7 @@ class PinFragment: Fragment(R.layout.fragment_lock_screen_pf) {
                 ) && mCode != mCodeValidation
             ) {
                 mCodeCreateListener!!.onNewCodeValidationFailed()
-                titleView!!.text = mConfiguration!!.title
+//                titleView!!.text = mConfiguration!!.title
                 cleanCode()
 
                 val intent = Intent(context, DashboardActivity::class.java)
@@ -358,7 +357,7 @@ class PinFragment: Fragment(R.layout.fragment_lock_screen_pf) {
             mCodeValidation = ""
             mPFPinCodeViewModel.encodePin(context, mCode).observe(
                 this@PinFragment,
-                Observer<PFResult<String?>?> { result ->
+                Observer  { result ->
                     if (result == null) {
                         return@Observer
 
@@ -372,7 +371,8 @@ class PinFragment: Fragment(R.layout.fragment_lock_screen_pf) {
                         deleteEncodeKey()
                         return@Observer
                     }
-                    val encodedCode = result.result
+                    val encodedCode = result.result!!
+//                    val encodedCode = result.result
                     mCodeCreateListener?.onCodeCreated(encodedCode)
 
 
@@ -441,9 +441,11 @@ class PinFragment: Fragment(R.layout.fragment_lock_screen_pf) {
     fun setEncodedPinCode(encodedPinCode: String) {
         mEncodedPinCode = encodedPinCode
     }
+
     fun setLoginListener(listener: OnPFLockScreenLoginListener) {
         mLoginListener = listener
     }
+
     fun setCodeCreateListener(listener: OnPFLockScreenCodeCreateListener) {
         mCodeCreateListener = listener
     }

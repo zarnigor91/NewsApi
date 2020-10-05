@@ -14,11 +14,9 @@ import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import com.example.marta.app.App
 import com.example.marta.R
-import com.example.marta.pin2.PinFragment
-import com.example.marta.pin2.PinPasFragment
 import com.example.marta.ui.dashboard.DashboardActivity
-
-import com.example.marta.ui.login.LoginFragment
+import com.example.marta.ui.dashboard.qr.QrActivity
+import com.example.marta.ui.dashboard.qr.QrCodFragment
 import kotlinx.android.synthetic.main.language_layout.*
 import java.util.*
 
@@ -168,19 +166,21 @@ class LanguageFragment :Fragment(R.layout.language_layout){
         val scaleDownX = ObjectAnimator.ofFloat(view, "scaleX", 0.5f)
         val scaleDownY = ObjectAnimator.ofFloat(view, "scaleY", 0.5f)
         scaleDownX.duration = 200
-        scaleDownY.duration = 200
+        scaleDownY.duration = 200 // shoshmang ovozini yoqiy tushuntiraman tegmang mikrafonizi yoqing
+
+
         scaleDownX.start()
         scaleDownY.start()
     }
 
    private fun nextFragment(){
-      activity?.supportFragmentManager?.beginTransaction()?.addToBackStack(null)?.replace(
-           R.id.container2,
-          PinPasFragment()
-       )?.commit()
-//       val intent = Intent(context, DashboardActivity::class.java)
-//       intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-//       startActivity(intent)
+//      activity?.supportFragmentManager?.beginTransaction()?.addToBackStack(null)?.replace(
+//           R.id.container2,
+//          QrCodFragment()
+//       )?.commit()
+       val intent = Intent(context, DashboardActivity::class.java)
+       intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+       startActivity(intent)
    }
     private fun changeLang(language: String) {
         val locale = Locale(language)
