@@ -36,4 +36,5 @@
     <string name="no_fingerprints_title_pf">"No fingerprints found"</string>
     <string name="cancel_pf">Cancel</string>
     <string name="settings_pf">Settings</string>
+    <string name="valuta">$</string>
 </resources>
