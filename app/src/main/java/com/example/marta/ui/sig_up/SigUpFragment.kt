@@ -1,4 +1,4 @@
-package com.example.marta.ui.login
+package com.example.marta.ui.sig_up
 
 import android.os.Bundle
 import android.util.Log
@@ -43,10 +43,10 @@ class SigUpFragment : Fragment(R.layout.fragment_password) {
 
         viewModel.init(api)
         next_btn.setOnClickListener {
-            Log.d("hashh", "hash" + preferencesUtil.getTokenn())
+            Log.d("hashh", "hash" + preferencesUtil.getHash())
             sipUpViewModel().loadSigUp(
                 SigUpRequest(
-                    preferencesUtil.getTokenn(),
+                    preferencesUtil.getHash(),
                     conf!!,
                     et_conf_pass.text.toString()
                 )
@@ -75,14 +75,12 @@ class SigUpFragment : Fragment(R.layout.fragment_password) {
     }
 
     private fun loadData() {
-
         sipUpViewModel().init(api)
-
         sipUpViewModel().postLiveData.observe(viewLifecycleOwner, postObserver)
     }
 
     private val postObserver = Observer<String> {
-        preferencesUtil.getTokenn()
+        preferencesUtil.getHash()
     }
 
 }

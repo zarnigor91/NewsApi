@@ -1,4 +1,4 @@
-package com.example.marta.ui.login
+package com.example.marta.ui.sig_up
 
 
 import android.os.Bundle
@@ -127,7 +127,7 @@ class ConfirmFragment : Fragment(R.layout.fragment_otp) {
     private val smsObserver=Observer<String>{
         if (it.isNullOrEmpty()){
             stringArray[0]=it
-            preferencesUtil.clearToken(it)
+            preferencesUtil.clearHash(it)
         }
         else{
             Toast.makeText(context,"error",Toast.LENGTH_SHORT).show()

@@ -2,14 +2,15 @@ package com.example.marta.vm
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
-import com.example.marta.ui.language.LanguageActivity
+import com.example.marta.model.LoginRequest
 import com.example.marta.model.VerRequest
 import com.example.marta.network.PostApi
+import com.example.marta.ui.language.LanguageActivity
 import com.example.marta.utils.PreferencesUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class LoginViewModel :ViewModel(){
+class LoginViewModel : ViewModel(){
 
     private lateinit var preference: PreferencesUtil
     private lateinit var api: PostApi
@@ -22,30 +23,21 @@ class LoginViewModel :ViewModel(){
     private val _tokenLiveData = MutableLiveData<String>()
     val tokenLiveData: LiveData<String> = _tokenLiveData
 
-//    fun getToken(createLogin: LoginRequest) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            val response = api.getPosts(  createLogin.username, createLogin.password, createLogin.grant_type)
-//
-//            if (response.isSuccessful) {
-//                _tokenLiveData.postValue(response.body()?.accessToken)
-//            } else {
-//                _tokenLiveData.postValue("")
-//            }
-//        }
-//    }
-    fun getHash(createLogin:VerRequest) {
+        fun getToken(loginRequest: LoginRequest) {
+
         viewModelScope.launch(Dispatchers.IO) {
-            val response = api.getPosts(VerRequest(createLogin.phone))
+            val response = api.getToken(loginRequest.username, loginRequest.password, loginRequest.grant_type)
 
             if (response.isSuccessful) {
-                _tokenLiveData.postValue(response.body()?.hash)
-
+                    _tokenLiveData.value=response.body()?.refreshToken
+                _tokenLiveData.postValue(response.body()?.accessToken)
+                _tokenLiveData.postValue(response.body()?.refreshToken)
             } else {
                 _tokenLiveData.postValue("")
             }
         }
     }
 }
-
-fun Fragment.loginViewModel() = ViewModelProviders.of(activitySplash())[LoginViewModel::class.java]
-fun Fragment.activitySplash() = activity as LanguageActivity
+fun Fragment.loginViewModel() = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(LoginViewModel::class.java)
+//fun Fragment.loginViewModel() = ViewModelProviders.of(activitySplash())[LoginViewModel::class.java]
+//fun Fragment.activitySplash() = activity as LanguageActivity

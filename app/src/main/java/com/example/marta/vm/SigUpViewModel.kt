@@ -33,5 +33,4 @@ class SigUpViewModel :ViewModel(){
 
     }
 }
-
 fun Fragment.sipUpViewModel() = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(SigUpViewModel::class.java)

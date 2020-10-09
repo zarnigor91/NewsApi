@@ -54,20 +54,20 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/et_conf_code"
+            android:id="@+id/tl_conf_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="confirmation code">
+            android:hint="email">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_conf_edit"
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/et_password"
+            android:id="@+id/tl_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_device_credential_password"
@@ -76,7 +76,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_pass_edit"
+                android:id="@+id/et_pass_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -97,7 +97,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_next_sig_up"
+        android:id="@+id/bt_next_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

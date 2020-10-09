@@ -17,6 +17,8 @@ import com.example.marta.R
 import com.example.marta.ui.dashboard.DashboardActivity
 import com.example.marta.ui.dashboard.qr.QrActivity
 import com.example.marta.ui.dashboard.qr.QrCodFragment
+import com.example.marta.ui.login.LoginFragment
+import com.example.marta.ui.sig_up.SignUpFragment
 import kotlinx.android.synthetic.main.language_layout.*
 import java.util.*
 
@@ -174,13 +176,13 @@ class LanguageFragment :Fragment(R.layout.language_layout){
     }
 
    private fun nextFragment(){
-//      activity?.supportFragmentManager?.beginTransaction()?.addToBackStack(null)?.replace(
-//           R.id.container2,
-//          QrCodFragment()
-//       )?.commit()
-       val intent = Intent(context, DashboardActivity::class.java)
-       intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-       startActivity(intent)
+      activity?.supportFragmentManager?.beginTransaction()?.addToBackStack(null)?.replace(
+           R.id.container2,
+        SignUpFragment()
+       )?.commit()
+//       val intent = Intent(context, DashboardActivity::class.java)
+//       intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+//       startActivity(intent)
    }
     private fun changeLang(language: String) {
         val locale = Locale(language)

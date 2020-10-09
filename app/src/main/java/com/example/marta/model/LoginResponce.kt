@@ -3,9 +3,11 @@ package com.example.marta.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ModelUser(
+data class LoginResponce(
     @SerializedName("access_token")
     val accessToken: String? = "",
+    @SerializedName("refresh_token")
+    val refreshToken: String? = "",
     @SerializedName("authorities")
     val authorities: List<String>? = listOf(),
     @SerializedName("clientVersion")

@@ -1,6 +1,8 @@
 package com.example.marta.di.module
 
 import android.content.Context
+import com.example.marta.TOKEN_KEY
+import com.example.marta.app.App
 import com.example.marta.network.PostApi
 import com.example.marta.di.scope.AppScope
 import com.example.marta.utils.PreferencesUtil
@@ -10,6 +12,7 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module
 import dagger.Provides
+import okhttp3.Credentials
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -49,6 +52,9 @@ class UserApiModule(private val context: Context) {
     @Provides
     @AppScope
     fun provideRetrofitBuilder(preferencesUtil: PreferencesUtil): OkHttpClient {
+        val settings =
+            androidx.preference.PreferenceManager.getDefaultSharedPreferences(App.getApplication())
+        val key = settings.getString(TOKEN_KEY, null)
         val authInterceptor = Interceptor { chain ->
             val original = chain.request()
 
@@ -60,7 +66,7 @@ class UserApiModule(private val context: Context) {
 
             }
             val request = requestBuilder
-//                .header("Authorization", Credentials.basic("dev", "test"))
+                .header("Authorization", Credentials.basic("dev", "test"))
                 .build()
             chain.proceed(request)
         }

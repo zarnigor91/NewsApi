@@ -35,7 +35,5 @@ class ConfirmViewModel:ViewModel(){
 
         }
     }
-
-
 }
 fun Fragment.confirmViewMOdel() = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ConfirmViewModel::class.java)

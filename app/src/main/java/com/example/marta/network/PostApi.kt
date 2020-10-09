@@ -9,14 +9,14 @@ import retrofit2.http.*
 interface PostApi {
 
 
-//    @POST("oauth/token")
-//    suspend fun getPosts(
-////        @Header("dev") test: String,
-////        @Header("Authorization")  basicToken:String,
-//        @Query("username")  id: String,
-//        @Query("password")  password: String,
-//        @Query("grant_type")  grant_type: String
-//    ) : Response<ModelUser>
+    @POST("oauth/token")
+    suspend fun getToken(
+//        @Header("dev") test: String,
+//        @Header("Authorization")  basicToken:String,
+        @Query("username")  id: String,
+        @Query("password")  password: String,
+        @Query("grant_type")  grant_type: String
+    ) : Response<LoginResponce>
 
     @POST("registration/code")
 //    suspend fun getPosts(@Field ("phone")phone:String) : Response<Any>
