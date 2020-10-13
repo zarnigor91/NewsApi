@@ -17,6 +17,7 @@ import com.example.marta.app.App
 import com.example.marta.dialog.AlertDialogs
 import com.example.marta.model.VerRequest
 import com.example.marta.network.PostApi
+import com.example.marta.ui.language.LanguageFragment
 import com.example.marta.utils.PreferencesUtil
 import com.example.marta.vm.signUpViewModel
 import com.hbb20.CountryCodePicker
@@ -42,17 +43,30 @@ class SignUpFragment : Fragment(R.layout.tel_number_layout),
         super.onViewCreated(view, savedInstanceState)
         injectDependency(this)
         loadData()
-
+        tv_tel_number.text=requireContext().getString(R.string.phone_number)
+             if (!preferencesUtil.isLogin()){
+                 preferencesUtil.clearHash("")
+             }
         bt_naxt_login.setOnClickListener {
             et_num.text = ccp.fullNumber
             signUpViewModel().getHash(VerRequest(et_num.text.toString()))
-            AlertDialogs.progressDialog(requireContext(),"Kuting")
+//            AlertDialogs.progressDialog(requireContext(),requireContext().getString(R.string.wait))
 //            AlertDialogs.showMessage(requireContext(),"dsffds")
         }
         assignViews()
         addTextWatcher()
         registerCarrierEditText()
-
+        imb_back_phone_fragment.setOnClickListener {
+            activity?.supportFragmentManager?.beginTransaction()?.setCustomAnimations(
+                R.anim.enter_left,
+                R.anim.exit_left,
+                R.anim.enter_right,
+                R.anim.exit_right
+            )?.addToBackStack(null)?.replace(
+                R.id.container2,
+               LanguageFragment()
+            )?.commit()
+        }
     }
 
     private fun injectDependency(fragment: SignUpFragment) {
@@ -62,9 +76,10 @@ class SignUpFragment : Fragment(R.layout.tel_number_layout),
     private fun loadData() {
         signUpViewModel().init(api, preferencesUtil)
         signUpViewModel().hashLiveData.observe(viewLifecycleOwner, Observer {
-            if (!it.isNullOrEmpty()) {
-                hasshh = it
-                preferencesUtil.clearHash(it)
+            if (it!=null) {
+
+                hasshh = it.hash
+                preferencesUtil.clearHash(it.hash)
                  AlertDialogs.closeProgress()
                 val oneFragment: Fragment = ConfirmFragment()
                 val works = arrayOf(hasshh, et_num.text.toString())
@@ -80,6 +95,22 @@ class SignUpFragment : Fragment(R.layout.tel_number_layout),
                 )?.addToBackStack(null)?.replace(
                     R.id.container2,
                     oneFragment
+                )?.commit()
+
+            }
+
+
+        })
+        signUpViewModel().errorLiveData.observe(viewLifecycleOwner, Observer {
+            if (it==409){
+                activity?.supportFragmentManager?.beginTransaction()?.setCustomAnimations(
+                    R.anim.enter_left,
+                    R.anim.exit_left,
+                    R.anim.enter_right,
+                    R.anim.exit_right
+                )?.addToBackStack(null)?.replace(
+                    R.id.container2,
+                    ProPasswordFragment()
                 )?.commit()
             }
         })

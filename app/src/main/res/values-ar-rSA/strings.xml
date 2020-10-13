@@ -10,33 +10,48 @@
     <string name="tel_number">رقم الهاتف</string>
     <string name="nextt">التالى</string>
 
-    <string name="txt_msg_close">Do you really want to close the registration?</string>
-    <string name="action_close">Close</string>
-    <string name="action_cancel">Cancel</string>
-    <string name="permission_is_needed">Permission is needed</string>
-    <string name="back">Back</string>
-    <string name="approve">Approve</string>
-    <string name="_1">1</string>
-    <string name="_2">2</string>
-    <string name="_3">3</string>
-    <string name="_4">4</string>
-    <string name="_5">5</string>
-    <string name="_6">6</string>
-    <string name="_7">7</string>
-    <string name="_8">8</string>
-    <string name="_9">9</string>
-    <string name="_0">0</string>
-    <string name="_00">00</string>
-    <string name="use_fingerprint_or_enter_pin_code">Use fingerprint or enter PIN code</string>
-    <string name="new_password">New password</string>
-    <string name="forgot_pin_code">Forgot\nyour PIN?</string>
-    <string name="tmp_password">Temporary password</string>
-    <string name="err_msg_otp_length">One time password can\'t be less than 5 digits</string>
-    <string name="repeat_enter_new_pin_code">Repeat PIN</string>
-    <string name="lock_screen_title_pf">Input pin code or use fingerprint</string>
-    <string name="no_fingerprints_message_pf">No fingerprints found. Please add fingerprints in the settings if you want to use this authorization method."</string>
-    <string name="no_fingerprints_title_pf">"No fingerprints found"</string>
+    <string name="txt_msg_close">هل تريد حقًا إغلاق التسجيل؟</string>
+    <string name="action_close">قريب</string>
+    <string name="action_cancel">إلغاء</string>
+    <string name="permission_is_needed">إذن مطلوب</string>
+    <string name="back">عودة</string>
+    <string name="approve">يوافق</string>
+    <string name="_1">۱</string>
+    <string name="_2">۲</string>
+    <string name="_3">۳</string>
+    <string name="_4">٤</string>
+    <string name="_5">۵</string>
+    <string name="_6">٦</string>
+    <string name="_7">۷</string>
+    <string name="_8">۸</string>
+    <string name="_9">۹</string>
+    <string name="_0">۰</string>
+    <string name="_00">۰۰</string>
+    <string name="use_fingerprint_or_enter_pin_code">
+استخدم بصمة الإصبع أو أدخل رمزPIN  </string>
+    <string name="new_password">كلمة مرور جديدة</string>
+    <string name="forgot_pin_code">هل نسيت \ n رقم التعريف الشخصي الخاص بك؟</string>
+    <string name="tmp_password">كلمة مرور مؤقتة</string>
+    <string name="err_msg_otp_length">لا يمكن أن تكون كلمة المرور المستخدمة لمرة واحدة أقل من 5 أرقام</string>
+    <string name="repeat_enter_new_pin_code">كرر PIN</string>
+    <string name="lock_screen_title_pf">
+أدخل الرمز السري أو استخدم بصمة الإصبع</string>
+    <string name="no_fingerprints_message_pf">لم يتم العثور على بصمات أصابع. يرجى إضافة بصمات الأصابع في الإعدادات إذا كنت تريد استخدام طريقة التفويض هذه.
+"</string>
+    <string name="no_fingerprints_title_pf">"لم يتم العثور على بصمات أصابع
+"</string>
     <string name="cancel_pf">Cancel</string>
-    <string name="settings_pf">Settings</string>
+    <string name="settings_pf">إلغاء</string>
     <string name="valuta">$</string>
+    <string name="wait">ارجوك انتظر</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="main">الأساسية</string>
+    <string name="favorite">مفضل</string>
+    <string name="monitoring">المراقبة</string>
+    <string name="account">الحساب</string>
+    <string name="total_funds">إجمالي الأموال</string>
+    <string name="add_card">إضافة بطاقة</string>
+    <string name="search">بحث</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="scan_again">Scan again</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.marta.vm
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
+import com.example.marta.model.ModelResponce
 import com.example.marta.ui.language.LanguageActivity
 import com.example.marta.model.VerRequest
 import com.example.marta.network.PostApi
@@ -21,8 +22,12 @@ class SignUpViewModel :ViewModel(){
         this.preference = preferencesUtil
     }
 
-    private val _hashLiveData = MutableLiveData<String>()
-    val hashLiveData: LiveData<String> = _hashLiveData
+    private val _hashLiveData = MutableLiveData<ModelResponce>()
+    val hashLiveData: LiveData<ModelResponce> = _hashLiveData
+
+    private val _errorLiveData = MutableLiveData<Int>()
+    val errorLiveData: LiveData<Int> = _errorLiveData
+
 
     fun getHash(createLogin:VerRequest) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -30,13 +35,13 @@ class SignUpViewModel :ViewModel(){
                 val response = api.getPosts(VerRequest(createLogin.phone))
                 Log.d("responcee","$response")
                 if (response.isSuccessful) {
-                    _hashLiveData.postValue(response.body()?.hash)
+                    _hashLiveData.postValue(response.body())
 //                    preference.clearHash(response.body()?.hash.toString())
-                    Log.d("ifff",_hashLiveData.postValue(response.body()?.hash).toString())
+                    Log.d("ifff",_hashLiveData.postValue(response.body()).toString())
 
                 } else {
-                    _hashLiveData.postValue("")
-                    Log.d("elseeeee",_hashLiveData.postValue(response.body()?.hash).toString())
+                    _errorLiveData.postValue(response.code())
+                    Log.d("elseeeee",_hashLiveData.postValue(response.body()).toString())
                 }
             }
           catch (e:ExecutionException){

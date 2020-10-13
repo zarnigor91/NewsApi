@@ -19,7 +19,7 @@ public class PFPinCodeViewModel extends ViewModel {
         PFSecurityManager.getInstance().getPinCodeHelper().encodePin(context, pin,
                 new PFPinCodeHelperCallback<String>() {
                      @Override
-                    public void onResult(PFResult result) {
+                    public void onResult(PFResult<String> result) {
                         liveData.setData(result);
                     }
                 }
@@ -33,7 +33,7 @@ public class PFPinCodeViewModel extends ViewModel {
                 encodedPin,
                 pin, new PFPinCodeHelperCallback<Boolean>() {
                     @Override
-                    public void onResult(PFResult result) {
+                    public void onResult(PFResult<Boolean> result) {
                         liveData.setData(result);
                     }
                 }

@@ -3,6 +3,7 @@ package com.example.marta.vm
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import com.example.marta.model.LoginRequest
+import com.example.marta.model.LoginResponce
 import com.example.marta.model.VerRequest
 import com.example.marta.network.PostApi
 import com.example.marta.ui.language.LanguageActivity
@@ -20,8 +21,8 @@ class LoginViewModel : ViewModel(){
         this.preference = preferencesUtil
     }
 
-    private val _tokenLiveData = MutableLiveData<String>()
-    val tokenLiveData: LiveData<String> = _tokenLiveData
+    private val _tokenLiveData = MutableLiveData<LoginResponce>()
+    val tokenLiveData: LiveData<LoginResponce> = _tokenLiveData
 
         fun getToken(loginRequest: LoginRequest) {
 
@@ -29,11 +30,13 @@ class LoginViewModel : ViewModel(){
             val response = api.getToken(loginRequest.username, loginRequest.password, loginRequest.grant_type)
 
             if (response.isSuccessful) {
-                    _tokenLiveData.value=response.body()?.refreshToken
-                _tokenLiveData.postValue(response.body()?.accessToken)
-                _tokenLiveData.postValue(response.body()?.refreshToken)
+                preference.setAcsessToken(response.body()?.accessToken.toString())
+                preference.setRefreshToken(response.body()?.refreshToken.toString())
+                _tokenLiveData.postValue(response.body())
+
+
             } else {
-                _tokenLiveData.postValue("")
+                _tokenLiveData.postValue(response.body())
             }
         }
     }

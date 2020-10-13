@@ -1,6 +1,7 @@
 package com.example.marta.bio
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -12,9 +13,11 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 
 import com.example.marta.R
+import com.example.marta.ui.dashboard.DashboardActivity
 import java.util.concurrent.Executor
 
 class Biometricfragment:DialogFragment(){
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +28,7 @@ class Biometricfragment:DialogFragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTransparent()
+
     }
 
     override fun onResume() {
@@ -46,6 +50,7 @@ class Biometricfragment:DialogFragment(){
 
             BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
                 showErrorDialog(R.string.feture)
+
             }
             BiometricManager.BIOMETRIC_SUCCESS -> {
                 instantiateBiometric()
@@ -59,6 +64,9 @@ class Biometricfragment:DialogFragment(){
             BiometricPrompt(this, executor, object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                   Toast.makeText(context,"ok",Toast.LENGTH_SHORT).show()
+                    val    intent = Intent(context, DashboardActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
                 }
 
                 override fun onAuthenticationFailed() {
@@ -66,7 +74,7 @@ class Biometricfragment:DialogFragment(){
                 }
 
                 override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                    Toast.makeText(context,"ok",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"xato",Toast.LENGTH_SHORT).show()
                 }
             })
 

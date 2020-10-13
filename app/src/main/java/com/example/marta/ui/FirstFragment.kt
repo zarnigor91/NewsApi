@@ -1,10 +1,13 @@
 package com.example.marta.ui
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.marta.R
+import com.example.marta.app.App
+import com.example.marta.pin2.PinPasFragment
 import com.example.marta.ui.language.LanguageFragment
+import com.example.marta.ui.login.LoginActivity
 import com.example.marta.ui.login.LoginFragment
 import com.example.marta.utils.PreferencesUtil
 import javax.inject.Inject
@@ -15,16 +18,12 @@ class FirstFragment :Fragment(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        injectDependency(this )
         if (preferencesUtil.getHash().isNotEmpty()){
-            activity?.supportFragmentManager?.beginTransaction()?.setCustomAnimations(
-                R.anim.enter_left,
-                R.anim.exit_left,
-                R.anim.enter_right,
-                R.anim.exit_right
-            )?.addToBackStack(null)?.replace(
-                R.id.container2,
-                LanguageFragment()
-            )?.commit()
+                   val intent = Intent(context, LoginActivity::class.java)
+       intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+       startActivity(intent)
+
         }
         else{
             activity?.supportFragmentManager?.beginTransaction()?.setCustomAnimations(
@@ -34,8 +33,12 @@ class FirstFragment :Fragment(){
                 R.anim.exit_right
             )?.addToBackStack(null)?.replace(
                 R.id.container2,
-               LoginFragment()
+                LanguageFragment()
+
             )?.commit()
         }
+    }
+    private fun injectDependency(fragment: FirstFragment) {
+        (activity?.application as App).getApiComponent().inject(fragment)
     }
 }

@@ -13,7 +13,7 @@
        />
 
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
@@ -38,7 +38,7 @@
             android:layout_marginTop="20dp" />
 
         <ImageView
-            android:id="@+id/fingerprint_iv1"
+            android:id="@+id/fingerprint_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_fingerprint"

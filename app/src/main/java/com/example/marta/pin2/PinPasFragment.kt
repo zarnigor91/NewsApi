@@ -1,5 +1,6 @@
 package com.example.marta.pin2
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -8,6 +9,7 @@ import androidx.lifecycle.Observer
 import com.example.marta.R
 import com.example.marta.pin2.security.PFResult
 import com.example.marta.pin2.viewmodels.PFPinCodeViewModel
+import com.example.marta.ui.dashboard.DashboardActivity
 
 class PinPasFragment:Fragment(R.layout.activity_main){
 
@@ -67,6 +69,9 @@ class PinPasFragment:Fragment(R.layout.activity_main){
         object : PinFragment.OnPFLockScreenCodeCreateListener {
             override fun onCodeCreated(encodedCode: String?) {
                 Toast.makeText(requireContext(), "Code created", Toast.LENGTH_SHORT).show()
+                       val intent = Intent(context, DashboardActivity::class.java)
+       intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+       startActivity(intent)
                 PreferencesSettings.saveToPref(requireContext(), encodedCode)
             }
 
@@ -81,6 +86,9 @@ class PinPasFragment:Fragment(R.layout.activity_main){
             override fun onCodeInputSuccessful() {
                 Toast.makeText(requireContext(), "Code successfull", Toast.LENGTH_SHORT).show()
                 showMainFragment()
+                val intent = Intent(context, DashboardActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
             }
 
             override fun onFingerprintSuccessful() {

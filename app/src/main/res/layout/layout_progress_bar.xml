@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="6dp"
-        app:color="@color/colorAccent"
+        app:color="@color/colorAccentLight"
         app:count="5"
         app:timeout="300" />
 

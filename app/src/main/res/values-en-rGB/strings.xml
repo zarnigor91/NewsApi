@@ -38,4 +38,15 @@
     <string name="cancel_pf">Cancel</string>
     <string name="settings_pf">Settings</string>
     <string name="valuta">$</string>
+    <string name="wait">" Please wait"</string>
+    <string name="phone_number">Phone number</string>
+    <string name="main">main</string>
+    <string name="favorite">favorite</string>
+    <string name="monitoring">monitoring</string>
+    <string name="account">account</string>
+    <string name="total_funds">total funds</string>
+    <string name="add_card">Add card</string>
+    <string name="search">Search</string>
+    <string name="email">email</string>
+    <string name="scan_again">Scan again</string>
 </resources>

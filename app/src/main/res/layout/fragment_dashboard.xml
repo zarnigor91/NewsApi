@@ -41,7 +41,7 @@
                     android:layout_gravity="left|center"
                     android:layout_marginTop="80dp"
                     android:gravity="center"
-                    android:text="total funds"
+                    android:text="@string/total_funds"
                     android:textColor="#ABABAB"
                     android:textSize="12sp"
                     app:layout_scrollFlags="scroll|snap" />
@@ -115,7 +115,7 @@
                     android:layout_marginTop="20dp"
                     android:background="@drawable/backround_add"
                     android:gravity="center"
-                    android:text="Add card"
+                    android:text="@string/add_card"
                     android:textColor="#282828"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -149,7 +149,7 @@
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:iconifiedByDefault="false"
-                        android:queryHint="Search"
+                        android:queryHint="@string/search"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toRightOf="@+id/img_loud"
 

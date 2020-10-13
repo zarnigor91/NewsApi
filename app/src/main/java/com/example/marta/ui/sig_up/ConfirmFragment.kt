@@ -25,7 +25,7 @@ import javax.inject.Inject
 class ConfirmFragment : Fragment(R.layout.fragment_otp) {
     @Inject
     lateinit var api: PostApi
-
+    private var hasshh: String? = null
     private lateinit var pwdOtpEt: EditText
     private lateinit var pwdOtpTil: TextInputLayout
     private var timer: CountDownTimer? = null
@@ -41,13 +41,16 @@ class ConfirmFragment : Fragment(R.layout.fragment_otp) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         injectDependency(this)
+        if (!preferencesUtil.isLogin()){
+            preferencesUtil.clearHash("")
 
+        }
         val bundle = arguments
          stringArray = arguments?.getStringArray("works") as Array<String>
 
 
 
-        val sigUpFragment = SigUpFragment()
+        val sigUpFragment = SigInFragment()
         startTimer(60000)
         pwdOtpEt = view.findViewById(R.id.otp_password) as EditText
         pwdOtpTil = view.findViewById(R.id.layout_otp_password) as TextInputLayout

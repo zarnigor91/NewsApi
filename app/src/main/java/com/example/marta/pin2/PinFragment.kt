@@ -21,13 +21,15 @@ import androidx.lifecycle.Observer
 import androidx.preference.PreferenceManager
 import com.example.marta.R
 import com.example.marta.app.App
+import com.example.marta.bio.Biometricfragment
 import com.example.marta.pin2.security.PFResult
 import com.example.marta.pin2.viewmodels.PFPinCodeViewModel
 import com.example.marta.pin2.views.PFCodeView
 import com.example.marta.ui.dashboard.DashboardActivity
+import kotlinx.android.synthetic.main.fragment_lock_screen_pf.*
 
 
-class PinFragment : Fragment() {
+class PinFragment : Fragment(R.layout.fragment_lock_screen_pf) {
 
     private val TAG = PinFragment::class.java.name
 
@@ -99,6 +101,11 @@ class PinFragment : Fragment() {
 //        if (!mUseFingerPrint) {
 //            mFingerprintButton?.visibility = View.GONE
 //        }
+
+        fingerprint_iv.setOnClickListener {
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.container2, Biometricfragment())?.commit()
+        }
     }
 
     override fun onStart() {
@@ -137,7 +144,7 @@ class PinFragment : Fragment() {
 //            mFingerprintButton!!.visibility = View.GONE
 //            mDeleteButton!!.visibility = View.VISIBLE
 //        }
-        mIsCreateMode = mConfiguration!!.mode == PFFLockScreenConfiguration.MODE_CREATE
+        mIsCreateMode = mConfiguration!!.mode === PFFLockScreenConfiguration.MODE_CREATE
 //        if (mIsCreateMode) {
 //            mLeftButton!!.visibility = View.GONE
 //            mFingerprintButton!!.visibility = View.GONE
@@ -296,29 +303,8 @@ class PinFragment : Fragment() {
             sharedPref.edit().putString("code", code).apply()
             Log.d("codd", "" + code)
             mPFPinCodeViewModel.checkPin(context, mEncodedPinCode, mCode).observe(
-                this@PinFragment,
-                Observer<PFResult<Boolean?>?> {
-                    fun onChanged(result: PFResult<Boolean>?) {
-                        if (result == null) {
-                            return
-                        }
-                        if (result.error != null) {
-                            return
-                        }
-                        val isCorrect = result.result
-                        if (mLoginListener != null) {
-                            if (isCorrect) {
-                                mLoginListener!!.onCodeInputSuccessful()
-                            } else {
-                                mLoginListener!!.onPinLoginFailed()
-                                errorAction()
-                            }
-                        }
-                        if (!isCorrect && mConfiguration!!.isClearCodeOnError) {
-                            mCodeView!!.clearCode()
-                        }
-                    }
-                })
+                this@PinFragment,checkPinObserver
+                )
         }
 
         override fun onCodeNotCompleted(code: String?) {
@@ -327,6 +313,27 @@ class PinFragment : Fragment() {
                 return
             }
         }
+    }
+    private val checkPinObserver = Observer<PFResult<Boolean?>?> {result->
+            if (result == null) {
+                return@Observer
+            }
+            if (result.error != null) {
+                return@Observer
+            }
+            val isCorrect = result.result?:false
+            if (mLoginListener != null) {
+                if (isCorrect) {
+                    mLoginListener!!.onCodeInputSuccessful()
+                } else {
+                    mLoginListener!!.onPinLoginFailed()
+                    errorAction()
+                }
+            }
+            if (!isCorrect && mConfiguration!!.isClearCodeOnError) {
+                mCodeView!!.clearCode()
+            }
+
     }
 
     private val mOnNextButtonClickListener =
@@ -357,30 +364,32 @@ class PinFragment : Fragment() {
             mCodeValidation = ""
             mPFPinCodeViewModel.encodePin(context, mCode).observe(
                 this@PinFragment,
-                Observer  { result ->
-                    if (result == null) {
-                        return@Observer
+               encodePinObserver
+            )
 
-                    }
-                    if (result.error != null) {
+
+        }
+
+    private val encodePinObserver = Observer<PFResult<String>> {
+            result ->
+        if (result == null) {
+            return@Observer
+
+        }
+        if (result.error != null) {
 
 //                        Log.d(
 //                            PFLockScreenFragment.TAG,
 //                            "Can not encode pin code"
 //                        )
-                        deleteEncodeKey()
-                        return@Observer
-                    }
-                    val encodedCode = result.result!!
-//                    val encodedCode = result.result
-                    mCodeCreateListener?.onCodeCreated(encodedCode)
-
-
-                }
-            )
-
-
+            deleteEncodeKey()
+            return@Observer
         }
+        val encodedCode = result.result!!
+//                    val encodedCode = result.result
+        mCodeCreateListener?.onCodeCreated(encodedCode)
+
+    }
 
     open fun cleanCode() {
         mCode = ""

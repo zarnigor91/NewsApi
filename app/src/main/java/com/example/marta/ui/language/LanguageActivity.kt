@@ -18,21 +18,6 @@ class LanguageActivity :AppCompatActivity(){
         super.onCreate(savedInstanceState)
          setContentView(R.layout.activity_main)
 
-        if (isLogIn() != null) {
-          supportFragmentManager.beginTransaction()
-            .replace(
-                R.id.container2,
-                LoginFragment()
-            )
-            .commit()
-        } else {
-            supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.container2,
-                    LanguageFragment()
-                )
-                .commit()
-        }
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.container2,
