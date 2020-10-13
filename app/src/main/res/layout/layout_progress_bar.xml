@@ -8,7 +8,7 @@
     android:background="@drawable/bg_alert_dialog"
     android:orientation="vertical">
 
-    <com.example.marta.widget.ToolDotProgress
+    <uz.mayasoft.marta.wallet.widget.ToolDotProgress
         android:id="@+id/loader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

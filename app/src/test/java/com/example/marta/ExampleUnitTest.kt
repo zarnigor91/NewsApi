@@ -1,4 +1,4 @@
-package com.example.marta
+package uz.mayasoft.marta.wallet
 
 import org.junit.Test
 

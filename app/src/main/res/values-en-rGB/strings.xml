@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">MARTA Terminal</string>
     <string name="uzbek">Uzbekcha</string>
     <string name="rus">Русский</string>
     <string name="en">English</string>
