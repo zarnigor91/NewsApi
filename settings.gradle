@@ -1,3 +1,0 @@
-include ':ccp'
-include ':app'
-rootProject.name = "MARTA Wallet"

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <integer name="card_read_timeout">30</integer>
-    <integer name="no_activity_timeout">60</integer>
-    <integer name="trx_revers_timeout_minutes">15</integer>
-    <integer name="battery_min_level">5</integer>
-    <integer name="sms_wait_interval_sec">20</integer>
-</resources>
