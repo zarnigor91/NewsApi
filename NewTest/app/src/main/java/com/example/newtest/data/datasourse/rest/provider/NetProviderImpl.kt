@@ -1,6 +1,6 @@
 package com.example.newtest.data.datasourse.rest.provider
 
-import com.example.newtest.data.datasourse.rest.NetService
+import com.example.newtest.data.datasourse.rest.INetService
 import com.example.newtest.data.utils.Constants.INSTANCE.BASE_URL
 import com.example.newtest.data.utils.Constants.INSTANCE.TIMEOUT_SECONDS
 import okhttp3.OkHttpClient
@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-internal class NetProviderImpl : NetProvider {
+internal class NetProviderImpl : INetProvider {
 
     private val okHttpClientBuilder: OkHttpClient.Builder =
         OkHttpClient.Builder()
@@ -32,6 +32,6 @@ internal class NetProviderImpl : NetProvider {
             .build()
     }
 
-    override val netService: NetService =  retrofit.create(NetService::class.java)
+    override val netService: INetService =  retrofit.create(INetService::class.java)
 
 }

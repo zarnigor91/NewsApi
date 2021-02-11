@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.newtest.R
 import com.example.newtest.data.model.NewsItem
+import com.example.newtest.data.model.NewsModel
 import kotlinx.android.synthetic.main.news_item.view.*
 
 
@@ -29,7 +30,7 @@ class NewsAdapter(context: Context, private val action: (NewsItem) -> Unit) :
         holder.onBind(myList[position])
     }
 
-    fun update(newList: List<NewsItem>) {
+    fun updateNews(newList: List<NewsItem>) {
         myList.clear()
         myList.addAll(newList)
         this.notifyDataSetChanged()
@@ -44,9 +45,10 @@ class NewsAdapter(context: Context, private val action: (NewsItem) -> Unit) :
 
             itemView.apply {
                 setOnClickListener { action.invoke(selectSubject!!) }
+
                 Glide.with(itemView)
-                    .load(newsItem.shortUrl)
-                    .centerCrop() //4
+                    .load(newsItem)
+                    .centerCrop()
                     .error(R.drawable.newss)
                     .into(iv_news_item_image)
                 tv_title.text = newsItem.title
